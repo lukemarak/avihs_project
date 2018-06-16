@@ -9,9 +9,6 @@ from django.shortcuts import render, redirect
 from .models import Motherboard
 from .forms import MotherboardForm
 
-
-
-
 @login_required
 def home(request):
 	return render(request, 'home.html')
