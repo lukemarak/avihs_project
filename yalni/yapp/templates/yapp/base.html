@@ -2,14 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% block title %}A:Technologies{% endblock %}</title>
+    <title>{% block title %}Simple is Better Than Complex{% endblock %}</title>
   </head>
   <body>
     <header>
-      <h1>Avihs Technologies: Advantech Premier Partner</h1>
+      <h1>My Site</h1>
       {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">logout</a>
-        <a href="{% url 'ipc' %}">IPCs</a>
       {% else %}
         <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a>
       {% endif %}

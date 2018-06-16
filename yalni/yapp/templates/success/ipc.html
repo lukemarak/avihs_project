@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome, {{ user.username }}!</h2>
+  <p>****************************************************IPC********************************************************</p>
+  {% if motherboard %}
+	<br>
+  <p>success</p>
+  {% endif %}
+  <br>
+  <form method="POST" action="ipc">
+       {% csrf_token %}
+	{{ form }}
+       <br><br>
+       <input type="submit" value="Submit">
+   </form> 
+{% endblock %}
