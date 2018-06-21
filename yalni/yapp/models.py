@@ -17,7 +17,7 @@ class Client(models.Model):
     class Meta:
         ordering = ['client', 'client_address']
 
-class Chasis(models.Model):
+class Chasiz(models.Model):
     chasis = models.CharField(max_length=100)
     WITH_BAY = (
         ('','----Select Option----'),
@@ -44,7 +44,7 @@ class Motherboard(models.Model):
 
 class Configuration(models.Model):
     client = models.ForeignKey(Client, related_name='configurations')
-    chasis = models.ForeignKey(Chasis, related_name='configurations')
+    chasis = models.ForeignKey(Chasiz, related_name='configurations')
     motherboard_part_no = models.ForeignKey(Motherboard, related_name='configurations')
     processor = models.CharField(max_length=100)
     memory = models.CharField(max_length=100)

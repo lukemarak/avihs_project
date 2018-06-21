@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome, {{ user.username }}!</h2>
+  <p>****************************************************IPC********************************************************</p>
+  {% if chasiz %}
+	<br>
+  {% csrf_token %}
+  {{ chasis }}
+  {% endif %}
+  <br>
+  <form method="POST" action="add_chasis">
+       {% csrf_token %}
+       Chasis Model:<input type='text', name='chasis'>
+       <br>
+       Bay Included:<select>
+		<option value="">--Select Options--</option>
+		<option value="No">Without Bay</option>
+		<option value="Two">With Two Bays</option>
+		<option value="Four">With Four Bays</option>
+		<option value="Six">With Six Bays</option>
+	</select>
+       <br><br>
+       <input type="submit" value="Submit">
+   </form>
+{% endblock %}

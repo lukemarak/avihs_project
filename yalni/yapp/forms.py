@@ -1,14 +1,15 @@
 from django import forms
-from .models import Client, Chasis, Motherboard, Configuration, Detail
+from .models import Client, Chasiz, Motherboard, Configuration, Detail
+from django.db import models
 
 class ClientForm(forms.Form):
 	client = forms.CharField(max_length=100)
 	client_address = forms.CharField(max_length=200)
 	client_address_short = forms.CharField(max_length=100)
 	client_nick_name = forms.CharField(max_length=100)
-		
 
-class ChasisForm(forms.Form):
+
+class ChasizForm(forms.Form):
 	chasis = forms.CharField(max_length=20)
 	BAY = (
 		('', '----Select Option----'),
@@ -18,16 +19,16 @@ class ChasisForm(forms.Form):
 		('Six', 'With 6 Bays'),
 	)
 	with_or_without_bay = forms.CharField(max_length=50, widget=forms.Select(choices=BAY))
-	
+
 class MotherboardForm(forms.Form):
 	motherboard_part_no = forms.CharField(max_length=50)
 	supported_processor = forms.CharField(max_length=200)
 	number_of_mem_slot = forms.IntegerField()
-	
+
 class ConfigurationForm(forms.Form):
-	client = forms.ModelChoiceField(queryset=Client.objects , required=True)
-	chasis = forms.ModelChoiceField(queryset=Chasis.objects , required=True)
-	motherboard_part_no = forms.ModelChoiceField(queryset=Motherboard.objects , required=True)
+	client = forms.ModelChoiceField(queryset=Client.objects.all() , required=True)
+	chasis = forms.ModelChoiceField(queryset=Chasiz.objects.all() , required=True)
+	motherboard_part_no = forms.ModelChoiceField(queryset=Motherboard.objects.all() , required=True)
 	processor = forms.CharField(max_length=100)
 	memory = forms.CharField(max_length=100)
 	hard_drive = forms.CharField(max_length=100)
@@ -37,9 +38,9 @@ class ConfigurationForm(forms.Form):
 	inclusive_part = forms.CharField(max_length=200)
 	created = forms.DateField()
 	save_as = forms.CharField(max_length=50)
-	
+
 class DetailForm(forms.Form):
-	save_as = forms.ModelChoiceField(queryset=Configuration.objects , required=True)
+	save_as = forms.ModelChoiceField(queryset=Configuration.objects.all(), initial=0 , required=True)
 	chasis = forms.CharField(max_length=20)
 	motherboard = forms.CharField(max_length=20)
 	memory = forms.CharField(max_length=200)
@@ -61,6 +62,5 @@ class DetailForm(forms.Form):
 		('Santosh', 'Santosh'),
 		('Others','Someone'),
 	)
-	
-	assembled_by = forms.CharField(max_length=50, widget=forms.Select(choices=ASSEMBLED_BY))
 
+	assembled_by = forms.CharField(max_length=50, widget=forms.Select(choices=ASSEMBLED_BY))
