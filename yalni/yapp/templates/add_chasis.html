@@ -13,13 +13,13 @@
        {% csrf_token %}
        Chasis Model:<input type='text', name='chasis'>
        <br>
-       Bay Included:<select>
-		<option value="">--Select Options--</option>
-		<option value="No">Without Bay</option>
-		<option value="Two">With Two Bays</option>
-		<option value="Four">With Four Bays</option>
-		<option value="Six">With Six Bays</option>
-	</select>
+       Bay:<select name = "with_or_without_bay" >
+                    <option value="">----Select Options----</option>
+                     <option value="No">Without Bay</option>
+                     <option value="Two">With 2 Bays</option>
+                     <option value="Four">With 4 Bays</option>
+                     <option value="Six">With 6 Bays</option>
+           </select>
        <br><br>
        <input type="submit" value="Submit">
    </form>
