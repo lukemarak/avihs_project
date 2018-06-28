@@ -26,9 +26,9 @@ class MotherboardForm(forms.Form):
 	number_of_mem_slot = forms.IntegerField()
 
 class ConfigurationForm(forms.Form):
-	client = forms.ModelChoiceField(queryset=Client.objects.all() , required=True)
-	chasis = forms.ModelChoiceField(queryset=Chasiz.objects.all() , required=True)
-	motherboard_part_no = forms.ModelChoiceField(queryset=Motherboard.objects.all() , required=True)
+	client = forms.ModelChoiceField(queryset=Client.objects, required=True)
+	chasis = forms.ModelChoiceField(queryset=Chasiz.objects, required=True)
+	motherboard_part_no = forms.ModelChoiceField(queryset=Motherboard.objects, required=True)
 	processor = forms.CharField(max_length=100)
 	memory = forms.CharField(max_length=100)
 	hard_drive = forms.CharField(max_length=100)

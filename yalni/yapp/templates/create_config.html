@@ -3,15 +3,51 @@
 {% block content %}
   <h2>Welcome, {{ user.username }}!</h2>
   <p>****************************************************IPC********************************************************</p>
-  {% if motherboard %}
-	<br>
-  <p>success</p>
-  {% endif %}
   <br>
   <form method="POST" action="create_config">
        {% csrf_token %}
-       {{ form.as_ul }}
+       Client:<select name="client" id="id_client">
+              <option value="">----Select Options----</option>
+              <option value="1">GE</option>
+              <option value="2">HCL</option>
+              <option value="3">Mobis</option>
+              <option value="4">ABB</option>
+       </select>
+       <br>
+       Chasis:<select name="chasis" id="id_chasis">
+              <option value="">----Select Options----</option>
+              <option value="1">IPC-510</option>
+              <option value="2">IPC-610</option>
+              <option value="3">ACP-4360</option>
+              <option value="4">ACP-4000</option>
+       </select>
+       <br>
+       AIMB/ASMB:<select name="motherboard_part_no" id="id_motherboard_part_no">
+              <option value="">----Select Options----</option>
+              <option value="1">AIMB-701G2</option>
+              <option value="2 ">AIMB-781G2</option>
+              <option value="3">ASMB-584G2</option>
+              <option value="4">AIMB-782QG4</option>
+       </select>
+       <br>
+       Processor:<input type="text", name="processor">
+       <br>
+       Memory:<input type="text", name="memory">
+       <br>
+       HDD:<input type="text", name="hard_drive">
+       <br>
+       SMPS:<input type="text", name="smps">
+       <br>
+       DVD:<input type="text", name="dvd_drive">
+       <br>
+       Operating System:<input type="text", name="operating_system">
+       <br>
+       Extra:<input type="text", name="inclusive_part">
+       <br>
+       created:<input type="date", name="created">
+       <br>
+       Name: <input type="text", name="save_as">
        <br><br>
        <input type="submit" value="Submit">
-   </form> 
+   </form>
 {% endblock %}

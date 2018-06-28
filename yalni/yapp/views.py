@@ -7,7 +7,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 #from django.db import IntegrityError
 from django.views import View
-from .models import Client, Chasiz, Motherboard, Configuration, Detail 
+from django.http import HttpResponse
+from .models import Client, Chasiz, Motherboard, Configuration, Detail
 from .forms import MotherboardForm, ClientForm, ChasizForm, ConfigurationForm, DetailForm
 
 @login_required
@@ -25,9 +26,9 @@ def signup(request):
 			user = authenticate(username=username, password=raw_password)
 			login(request, user)
 			return redirect('home')
-		else:
-			form = UserCreationForm()
-			return render(request, 'signup.html', {'form': form})
+	else:
+		form = UserCreationForm()
+	return render(request, 'signup.html', {'form': form})
 
 
 @login_required

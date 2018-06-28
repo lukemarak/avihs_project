@@ -10,9 +10,9 @@
       {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">logout</a>
         <a href="{% url 'board' %}">ASMB/AIMB</a>
-	      <a href="{% url 'add_client' %}">Add Client</a>
-	      <a href="{% url 'add_chasis' %}">Add Chasis</a>
-	      <a href="{% url 'create_config' %}">Create Configuration</a>
+	<a href="{% url 'add_client' %}">Add Client</a>
+        <a href="{% url 'add_chasis' %}">Add Chasis</a>
+	<a href="{% url 'create_config' %}">Create Configuration</a>
         <a href="{% url 'detail' %}">Assembly Detail</a>
       {% else %}
         <a href="{% url 'login' %}">login</a> | <a href="{% url 'signup' %}">signup</a>
