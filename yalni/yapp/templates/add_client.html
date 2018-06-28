@@ -1,12 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Welcome, {{ user.username }}!</h2>
-  <p>****************************************************IPC********************************************************</p>
-  {% if clients %}
-	<br>
-  {{ clients.client }}
-  {% endif %}
   <br>
   <form method="POST" action="add_client">
        {% csrf_token %}

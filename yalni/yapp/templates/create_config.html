@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Welcome, {{ user.username }}!</h2>
-  <p>****************************************************IPC********************************************************</p>
-  <br>
+<br>
   <form method="POST" action="create_config">
        {% csrf_token %}
        Client:<select name="client" id="id_client">

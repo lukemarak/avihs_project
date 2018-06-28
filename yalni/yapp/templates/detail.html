@@ -3,14 +3,49 @@
 {% block content %}
   <h2>Welcome, {{ user.username }}!</h2>
   <p>****************************************************IPC********************************************************</p>
-  {% if detail %}
-	<br>
-  <p>success</p>
-  {% endif %}
+  
   <br>
   <form method="POST" action="detail">
        {% csrf_token %}
-       {{ form.as_ul }}
+       Configuration Name:<select name="save_as" id="save_as">
+              <option value="">----Select Options----</option>
+              <option value="1">GE</option>
+              <option value="2">HCL</option>
+              <option value="3">Mobis</option>
+              <option value="4">ABB</option>
+       </select>
+       <br>
+       Chasis:<input type="text", name="chasis">
+       <br>
+       AIMB/ASMB:<input type="text", name="motherboard">
+       <br>
+       Memory:<input type="text", name="memory">
+       <br>
+       HDD:<input type="text", name="hard_drive">
+       <br>
+       SMPS:<input type="text", name="smps">
+       <br>
+       DVD:<input type="text", name="dvd_drive">
+       <br>
+       Product-Key:<input type="text", name="product_key">
+       <br>
+       Extra:<input type="text", name="extra">
+       <br>
+       Quantity:<input type="text", name="quantity">
+       <br>
+       Assembled On:<input type="date", name="assembled_on">
+       <br>
+       Assembled By:<select name="assembled_by" id="id_assembled_by">
+              <option value="">----Your Name----</option>
+              <option value="Luke">Luke Marak</option>
+              <option value="Balaji">Balaji</option>
+              <option value="Gopala">Gobalakhrishnan</option>
+              <option value="Mukesh">Mukesh Gautam</option>
+              <option value="Venkey">R.Venkatesh</option>
+              <option value="Manikndn">Manikandan</option>
+              <option value="Santosh">Santosh</option>
+              <option value="Others">Someone</option>
+       </select>
        <br><br>
        <input type="submit" value="Submit">
    </form>

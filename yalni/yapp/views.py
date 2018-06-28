@@ -114,7 +114,7 @@ def detail(request):
 			obj.save_as = form.cleaned_data['save_as']
 			obj.chasis = form.cleaned_data['chasis']
 			obj.motherboard = form.cleaned_data['memory']
-			obj.hard_drive = form.clened_data['hard_drive']
+			obj.hard_drive = form.cleaned_data['hard_drive']
 			obj.smps = form.cleaned_data['smps']
 			obj.dvd_drive = form.cleaned_data['dvd_drive']
 			obj.product_key = form.cleaned_data['product_key']

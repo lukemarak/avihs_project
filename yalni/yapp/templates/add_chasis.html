@@ -1,13 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Welcome, {{ user.username }}!</h2>
-  <p>****************************************************IPC********************************************************</p>
-  {% if chasiz %}
-	<br>
-  {% csrf_token %}
-  {{ chasis }}
-  {% endif %}
   <br>
   <form method="POST" action="add_chasis">
        {% csrf_token %}
@@ -23,6 +16,4 @@
        <br><br>
        <input type="submit" value="Submit">
    </form>
-   {{a}}
-   {% if chasiz %}Chasis {{chasis }}{% endif %}
 {% endblock %}

@@ -40,7 +40,7 @@ class ConfigurationForm(forms.Form):
 	save_as = forms.CharField(max_length=50)
 
 class DetailForm(forms.Form):
-	save_as = forms.ModelChoiceField(queryset=Configuration.objects.all(), initial=0 , required=True)
+	save_as = forms.ModelChoiceField(queryset=Configuration.objects, required=True)
 	chasis = forms.CharField(max_length=20)
 	motherboard = forms.CharField(max_length=20)
 	memory = forms.CharField(max_length=200)
