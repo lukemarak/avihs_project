@@ -1,52 +1,102 @@
 {% extends 'base.html' %}
-
+<title>{% block title %}Detail- {{ block.super }}{% endblock title %}</title>
 {% block content %}
-  <h2>Welcome, {{ user.username }}!</h2>
-  <p>****************************************************IPC********************************************************</p>
-  
-  <br>
-  <form method="POST" action="detail">
+<br>
+<div class="container">
+    <form class="form-horizontal", method="POST" action="detail">
        {% csrf_token %}
-       Configuration Name:<select name="save_as" id="save_as">
-              <option value="">----Select Options----</option>
-              <option value="1">GE</option>
-              <option value="2">HCL</option>
-              <option value="3">Mobis</option>
-              <option value="4">ABB</option>
-       </select>
-       <br>
-       Chasis:<input type="text", name="chasis">
-       <br>
-       AIMB/ASMB:<input type="text", name="motherboard">
-       <br>
-       Memory:<input type="text", name="memory">
-       <br>
-       HDD:<input type="text", name="hard_drive">
-       <br>
-       SMPS:<input type="text", name="smps">
-       <br>
-       DVD:<input type="text", name="dvd_drive">
-       <br>
-       Product-Key:<input type="text", name="product_key">
-       <br>
-       Extra:<input type="text", name="extra">
-       <br>
-       Quantity:<input type="text", name="quantity">
-       <br>
-       Assembled On:<input type="date", name="assembled_on">
-       <br>
-       Assembled By:<select name="assembled_by" id="id_assembled_by">
-              <option value="">----Your Name----</option>
-              <option value="Luke">Luke Marak</option>
-              <option value="Balaji">Balaji</option>
-              <option value="Gopala">Gobalakhrishnan</option>
-              <option value="Mukesh">Mukesh Gautam</option>
-              <option value="Venkey">R.Venkatesh</option>
-              <option value="Manikndn">Manikandan</option>
-              <option value="Santosh">Santosh</option>
-              <option value="Others">Someone</option>
-       </select>
-       <br><br>
-       <input type="submit" value="Submit">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="save_as">CRN:</label>
+              <div class="col-sm-10">
+                    <select class="form-control" id="save_as", name="save_as">
+                      <option value="">----Select Options----</option>
+                      <option value="4">GE7</option>
+                      <option value="5">ok_tested</option>
+                      <option value="{{ save_as }}">HCL Bangalore</option>
+                      <option value="{{ save_as }}">Hyundai</option>
+                    </select>
+              </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="chasis">IPC/ACP:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_chasis" placeholder="KMAXXXXXXX" name="chasis">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="motherboard">AIMB/ASMB:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_motherboard" placeholder="AKAXXXXXXX" name="motherboard">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="memory">RAM:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_memory" placeholder="ram" name="memory">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="hard_drive">HDD:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_hard_drive" placeholder="hdd " name="hard_drive">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="smps">SMPS:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_smps" placeholder="smps" name="smps">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="dvd_drive">DVD:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_dvd_drive" placeholder="dvd" name="dvd_drive">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="product_key">KEY:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_product_key" placeholder="key" name="product_key">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="extra">Extra:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_extra" placeholder="extra parts" name="extra">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="quantity">Total PC:</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="id_quantity" placeholder="total" name="quantity">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="assembled_on">Date:</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="id_assembled_on" placeholder="date" name="assembled_on">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="assembled_by">By:</label>
+                <div class="col-sm-10">
+                      <select class="form-control" id="assembled_by", name="assembled_by">
+                        <option value="">----Select Options----</option>
+                        <option value="Luke">Luke Marak</option>
+                        <option value="Mukesh">Mukesh Gautam</option>
+                        <option value="Balaji">B.Balaji</option>
+                        <option value="Venkatesh">R.Venkatesh</option>
+                        <option value="Gobala">Gopalakhrishnan</option>
+                        <option value="Manikandan">P.Manikandan</option>
+                        <option value="Santosh">Santosh</option>
+                      </select>
+                </div>
+          </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
    </form>
+ </div>
 {% endblock %}

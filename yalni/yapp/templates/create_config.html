@@ -1,51 +1,105 @@
 {% extends 'base.html' %}
-
+<title>{% block title %}Configuration - {{ block.super }}{% endblock title %}</title>
 {% block content %}
 <br>
-  <form method="POST" action="create_config">
+<div class="container">
+    <form class="form-horizontal", method="POST" action="create_config">
        {% csrf_token %}
-       Client:<select name="client" id="id_client">
-              <option value="">----Select Options----</option>
-              <option value="1">GE</option>
-              <option value="2">HCL</option>
-              <option value="3">Mobis</option>
-              <option value="4">ABB</option>
-       </select>
-       <br>
-       Chasis:<select name="chasis" id="id_chasis">
-              <option value="">----Select Options----</option>
-              <option value="1">IPC-510</option>
-              <option value="2">IPC-610</option>
-              <option value="3">ACP-4360</option>
-              <option value="4">ACP-4000</option>
-       </select>
-       <br>
-       AIMB/ASMB:<select name="motherboard_part_no" id="id_motherboard_part_no">
-              <option value="">----Select Options----</option>
-              <option value="1">AIMB-701G2</option>
-              <option value="2 ">AIMB-781G2</option>
-              <option value="3">ASMB-584G2</option>
-              <option value="4">AIMB-782QG4</option>
-       </select>
-       <br>
-       Processor:<input type="text", name="processor">
-       <br>
-       Memory:<input type="text", name="memory">
-       <br>
-       HDD:<input type="text", name="hard_drive">
-       <br>
-       SMPS:<input type="text", name="smps">
-       <br>
-       DVD:<input type="text", name="dvd_drive">
-       <br>
-       Operating System:<input type="text", name="operating_system">
-       <br>
-       Extra:<input type="text", name="inclusive_part">
-       <br>
-       created:<input type="date", name="created">
-       <br>
-       Name: <input type="text", name="save_as">
-       <br><br>
-       <input type="submit" value="Submit">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="client">Client:</label>
+              <div class="col-sm-10">
+                    <select class="form-control" id="id_client", name="client">
+                      <option value="">----Select Options----</option>
+                      <option value="1">GE</option>
+                      <option value="4">HCL</option>
+                      <option value="5">HCL Bangalore</option>
+                      <option value="2">Hyundai</option>
+                    </select>
+              </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="chasis">Chasis:</label>
+              <div class="col-sm-10">
+                    <select class="form-control" id="id_chasis", name="chasis">
+                      <option value="">----Select Options----</option>
+                      <option value="16">IPC-510</option>
+                      <option value="17">IPC-610</option>
+                      <option value="18">ACP-4360</option>
+                      <option value="18">ACP-4000</option>
+                    </select>
+              </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="motherboard_part_no">AIMB/ASMB:</label>
+            <div class="col-sm-10">
+                    <select class="form-control" id="id_motherboard_part_no", name="motherboard_part_no">
+                      <option value="">----Select Options----</option>
+                      <option value="1">AIMB-701G2</option>
+                      <option value="3">AIMB-781G2</option>
+                      <option value="2">ASMB-584G2</option>
+                      <option value="4">AIMB-782QG4</option>
+                    </select>
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="processor">Processor:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_processor" placeholder="processor" name="processor">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="memory">RAM:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_memory" placeholder="ram" name="memory">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="hard_drive">HDD:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_hard_drive" placeholder="hdd" name="hard_drive">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="smps">SMPS:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_smps" placeholder="power supply" name="smps">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="dvd_drive">DVD-DRIVE:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_dvd_drive" placeholder="dvd" name="dvd_drive">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="operating_system">OS:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_operating_system" placeholder="os" name="operating_system">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="inclusive_part">Extra:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_inclusive_part" placeholder="extra parts" name="inclusive_part">
+            </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="created">Date:</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="id_created" placeholder="date" name="created">
+            </div>
+          </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="save_as">Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="id_save_as" placeholder="Configuration name" name="save_as">
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
    </form>
+ </div>
 {% endblock %}

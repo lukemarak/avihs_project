@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-
+<title>{% block title %}Login - {{ block.super }}{% endblock title %}</title>
 {% block content %}
+<div class="jumbutron text-center">
   <h2>Log in to My Site</h2>
   {% if form.errors %}
     <p style="color: red">Your username and password didn't match. Please try again.</p>
@@ -23,4 +24,5 @@
     <button type="submit">Log in</button>
     <a href="{% url 'signup' %}">New to My Site? Sign up</a>
   </form>
+  </div>
 {% endblock %}

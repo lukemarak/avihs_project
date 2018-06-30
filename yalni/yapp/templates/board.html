@@ -1,15 +1,35 @@
 {% extends 'base.html' %}
-
+<title>{% block title %}AISMB -{{ block.super }}{% endblock title %}</title>
 {% block content %}
   <br>
-  <form method="POST" action="board">
-       {% csrf_token %}
-       Motherboard:<input type='text', name='motherboard_part_no'>
-       <br>
-       Supported Processor:<input type='text', name='supported_processor'>
-       <br>
-       Number of Memory Slots:<input type='text', name='number_of_mem_slot'>
-       <br><br>
-       <input type="submit" value="Submit">
-   </form> 
+<div class="container">
+  <form class="form-horizontal", method="POST" action="board">
+  {% csrf_token %}
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="motherboard_part_no">AIMB/ASMB:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="motherboard_part_no" placeholder="Part No" name="motherboard_part_no">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="supported_processor">Supported Processor:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="supported_processor" placeholder="Processor" name="supported_processor">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="number_of_mem_slot">Number of Memory Slots:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="number_of_mem_slot" placeholder="Number of memory slots" name="number_of_mem_slot">
+      </div>
+    </div>
+   <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
 {% endblock %}
